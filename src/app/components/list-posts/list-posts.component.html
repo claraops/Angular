@@ -1,0 +1,65 @@
+<h1>Mes listes</h1>
+
+
+<div class="search-bar">
+  <input 
+    type="text" 
+    [(ngModel)]="searchQuery" 
+    (input)="searchPosts()" 
+    placeholder="Rechercher un post">
+</div>
+
+<div class="new-post-button">
+  <a role="button" class="btn btn-primary" [routerLink]="['/posts/new']">Créer un nouveau post</a>
+</div>
+
+<!--<ul>
+  <a role="button" [routerLink]="['/posts/new']">nouveau post</a>
+  
+  <article *ngFor="let post of postList">
+    <h3> {{ post.title }}</h3>
+    <img [src]="post.imageUrl" alt="Image de {{ post.title }}" width="160"> <br/>
+    {{ post.body }} <br>
+    <a [routerLink]="['/posts', post.id, 'detail']">Détail</a> <!-- Lien vers la page de détail --
+  </article>
+</ul>-->
+
+<div class="post-grid">
+  <div class="post-card" *ngFor="let post of filteredPosts">
+    <h3>{{ post.title }}</h3>
+    <hr>
+    <img [src]="post.imageUrl" alt="Image de {{ post.title }}" width="160" />
+    <p>{{ post.body }}</p>
+    <a [routerLink]="['/posts', post.id, 'detail']">Détail...</a>
+      <br>
+    <button (click)="deletePost(post)">Delete</button>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<h1>Mes listes</h1>
+<ul>
+    
+    <a role="button" [routerLink]="['/posts/new']">bouton</a>
+    <article *ngFor="let post of postList">
+     <!--{{post.title}} <br/>
+        <a href="" [routerLink]="['/posts/'+post.id+'/detail']" >detail</a>--
+       <a [routerLink]="['/posts/detail']">Détail >></a> {{post.title}} </br>
+    </article>
+</ul>-->
+
+
